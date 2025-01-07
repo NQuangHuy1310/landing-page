@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.btn {
+		@apply px-7 py-4 bg-primary-color text-sm font-bold text-white uppercase rounded-lg;
+	}
+
+	.title {
+		@apply text-2xl font-medium text-title;
+	}
+
+	.box {
+		@apply bg-white rounded-2xl lg:p-5 p-4 shadow-custom flex flex-col justify-center gap-4;
+	}
+
+	.input-group {
+		@apply flex flex-col gap-0.5 flex-1;
+	}
+
+	.input-label {
+		@apply text-sm text-text-color font-normal;
+	}
+}
+
+body {
+	@apply font-roboto text-text-color;
+}
+
+.container {
+	@apply w-full max-w-[1200px] mx-auto lg:px-3 md:px-4 px-3;
+}
+
+ul {
+	@apply flex gap-4 flex-col list-disc px-4;
+}
+
+input {
+	@apply p-2 rounded-md  outline-none border-input border-[1px] focus:border-[1px];
+}
+
+select {
+	@apply p-2 rounded-md  outline-none border-input border-[1px] focus:border-[1px];
+}
