@@ -31,9 +31,9 @@
 
 	<!-- Section 2 - Giới thiệu -->
 	<section class="flex flex-col gap-8 container relative">
-		<div class="container pb-20 flex flex-col gap-6">
-			<h2 class="text-[40px] font-bold">Mua bảo hiểm TNDS xe máy</h2>
-			<div class="flex items-center gap-5">
+		<div class="container pb-20 flex flex-col gap-3.5 md:gap-6">
+			<h2 class="text-2xl md:text-[30px] lg:text-[40px] font-bold">Mua bảo hiểm TNDS xe máy</h2>
+			<div class="flex items-center gap-5 flex-wrap">
 				<div class="input-group">
 					<label class="input-label">Tên *</label>
 					<input placeholder="Tên chủ xe" type="text" />
@@ -50,10 +50,10 @@
 
 			<div class="space-y-4">
 				<label class="text-base font-bold">Chọn gói</label>
-				<div class="flex items-center gap-5">
+				<div class="flex items-center gap-5 md:flex-row flex-col">
 					<div
 						*ngFor="let item of packages"
-						class="flex-1 bg-bg p-3 rounded-md cursor-pointer"
+						class="flex-1 w-full bg-bg p-3 rounded-md cursor-pointer"
 						[ngClass]="{ 'border-primary-color border-2 bg-bg-active': selectPackage === item }"
 						(click)="selectPackage = item"
 					>
@@ -82,7 +82,7 @@
 
 			<div class="space-y-4">
 				<label class="text-base font-bold">Thời gian tham gia bảo hiểm</label>
-				<div class="flex items-center gap-5">
+				<div class="flex items-center gap-5 flex-wrap">
 					<div class="input-group">
 						<label class="input-label">Ngày bắt đầu hiệu lực *</label>
 						<input placeholder="Ngày bắt đầu" type="date" [value]="startDate | date : 'yyyy-MM-dd'" />
@@ -112,7 +112,7 @@
 					<input type="checkbox" class="size-4" id="hoadon" (change)="isShowInfo = !isShowInfo" />
 					<label class="text-base font-bold cursor-pointer" for="hoadon">Yêu cầu xuất hoá đơn</label>
 				</div>
-				<div class="flex items-center gap-5" *ngIf="isShowInfo">
+				<div class="flex items-center gap-5 flex-wrap" *ngIf="isShowInfo">
 					<div class="input-group">
 						<label class="input-label">Tên *</label>
 						<input placeholder="Tên" type="text" />
