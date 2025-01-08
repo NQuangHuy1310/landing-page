@@ -14,10 +14,10 @@
 			<div class="flex flex-col gap-5">
 				<h1 class="text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-bold">
 					TNDS xe máy <br />
-					<strong class="text-primary-color">Bảo hiểm đơn giản và dễ dàng</strong>
+					<strong class="text-primary-color">An tâm tham gia giao thông</strong>
 				</h1>
 				<p class="text-base text-gray font-normal">
-					BIC cung cấp các sản phẩm bảo hiểm uy tín, chất lượng bồi thường nhanh chóng
+					BIC cam kết luôn cung cấp cho Quý khách dịch vụ bồi thường có chất lượng tốt nhất
 				</p>
 			</div>
 		</div>
@@ -35,15 +35,15 @@
 			<h2 class="text-2xl md:text-[30px] lg:text-[40px] font-bold">Mua bảo hiểm TNDS xe máy</h2>
 			<div class="flex items-center gap-5 flex-wrap">
 				<div class="input-group">
-					<label class="input-label">Tên *</label>
+					<label class="input-label">Tên chủ xe *</label>
 					<input placeholder="Tên chủ xe" type="text" />
 				</div>
 				<div class="input-group">
-					<label class="input-label">Email *</label>
+					<label class="input-label">Email nhận thông báo *</label>
 					<input placeholder="Email" type="email" />
 				</div>
 				<div class="input-group">
-					<label class="input-label">Số điện thoại *</label>
+					<label class="input-label">Số điện thoại di động *</label>
 					<input placeholder="Số điện thoại" type="number" />
 				</div>
 			</div>
@@ -107,6 +107,31 @@
 				</div>
 			</div>
 
+			<div class="">
+				<div class="flex items-center gap-5 flex-wrap">
+					<div class="input-group">
+						<label class="input-label">Loại xe *</label>
+						<select>
+							<option value="1">Từ 50cc trở lên</option>
+							<option value="2">Dưới 50cc hoặc xe máy điện</option>
+						</select>
+					</div>
+					<div class="input-group">
+						<label class="input-label">Mã giảm giá</label>
+						<input placeholder="Mã giảm giá" type="text" (keydown)="handleKeyDown($event)" />
+					</div>
+					<div class="input-group">
+						<label class="input-label">Số tiền được giảm</label>
+						<input
+							placeholder="Số tiền được giảm"
+							type="number"
+							disabled
+							[value]="discountCode ? selectPackage.sale : 0"
+						/>
+					</div>
+				</div>
+			</div>
+
 			<div class="space-y-4">
 				<div class="flex items-center gap-2">
 					<input type="checkbox" class="size-4" id="hoadon" (change)="isShowInfo = !isShowInfo" />
@@ -132,10 +157,18 @@
 				</div>
 			</div>
 
-			<div class="w-full py-3 flex items-center justify-center rounded-md bg-bg gap-1">
-				<span class="text-base font-medium">Tổng phí: </span>
-				<span class="text-2xl text-secondary-color font-bold">{{ selectPackage.price }}</span>
-				<span class="text-sm font-medium">vnđ</span>
+			<div class="w-full py-3 rounded-md bg-bg flex items-center justify-center gap-2">
+				<div class="flex items-center justify-center gap-1">
+					<span class="text-base font-medium">Tổng phí: </span>
+					<span class="text-2xl text-secondary-color font-bold">{{ selectPackage.price }}</span>
+					<span class="text-sm font-medium">vnđ</span>
+				</div>
+				<div>-</div>
+				<div class="flex items-center justify-center gap-1">
+					<span class="text-base font-medium">Tổng thanh toán: </span>
+					<span class="text-2xl text-secondary-color font-bold">{{ totalPrice || selectPackage.price }}</span>
+					<span class="text-sm font-medium">vnđ</span>
+				</div>
 			</div>
 
 			<div class="flex items-center justify-center">
@@ -316,69 +349,6 @@
 
 		<button class="btn">Mua ngay</button>
 	</section>
-
-	<!-- Section 4 - Bồi thường dễ dàng -->
-	<section class="bg-primary-color py-16 text-white">
-		<div class="container">
-			<div class="flex items-center flex-col gap-5 mb-16">
-				<h2 class="text-[40px] font-bold">Bồi thường dễ dàng</h2>
-				<p class="text-sm font-normal">Bồi thường nhanh chóng, dễ dàng</p>
-			</div>
-			<div class="flex lg:items-start lg:flex-row flex-col gap-10 items-center justify-center">
-				<div class="flex-1 flex flex-col lg:gap-10 gap-6">
-					<div class="flex items-start gap-4">
-						<div class="size-12 bg-white rounded-full flex items-center justify-center">
-							<img src="../assets/like.png" />
-						</div>
-						<div class="flex flex-col gap-0.5">
-							<h5 class="text-base font-bold">Bước 1</h5>
-							<p>Tải App VNI</p>
-							<div class="flex items-center gap-1">
-								<img src="../assets/appstore.png" alt="" />
-								<img src="../assets/googlePlay.png" alt="" />
-							</div>
-						</div>
-					</div>
-
-					<div class="flex items-start gap-4">
-						<div class="size-12 bg-white rounded-full flex items-center justify-center">
-							<img src="../assets/like.png" />
-						</div>
-						<div class="flex flex-col gap-0.5">
-							<h5 class="text-base font-bold">Bước 2</h5>
-							<p>Làm theo hướng dẫn bồi thường chỉ trong vài phút trên VNI</p>
-						</div>
-					</div>
-
-					<div class="flex items-start gap-4">
-						<div class="size-12 bg-white rounded-full flex items-center justify-center">
-							<img src="../assets/like.png" />
-						</div>
-						<div class="flex flex-col gap-0.5">
-							<h5 class="text-base font-bold">Bước 3</h5>
-							<p>Đợi phản hồi bồi thường của chúng tôi từ 2-3 ngày làm việc</p>
-						</div>
-					</div>
-
-					<div class="">
-						<img src="../assets/QR Code.png" />
-					</div>
-				</div>
-
-				<div class="grid grid-cols-6 grid-rows-6 gap-5">
-					<div class="col-span-3 row-span-3">
-						<img src="../assets/1.png" class="rounded-2xl" />
-					</div>
-					<div class="col-span-3 row-span-3 col-start-1 row-start-4">
-						<img src="../assets/2.png" class="rounded-2xl" />
-					</div>
-					<div class="col-span-3 row-span-4 col-start-4 row-start-2">
-						<img src="../assets/3.png" class="rounded-2xl" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 </main>
 
 <!-- Footer -->
@@ -451,7 +421,7 @@
 			</div>
 		</div>
 		<div class="flex items-center justify-center">
-			<img src="../assets/qr.png" alt="" class="w-[250px] h-[300px] object-cover" />
+			<img [src]="qrImage" alt="" class="w-[250px] h-[300px] object-cover" />
 		</div>
 		<div class="flex items-center gap-1 justify-center">
 			<span class="text-base font-bold">Tổng phí</span>
