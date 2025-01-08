@@ -54,7 +54,7 @@
 					<div
 						*ngFor="let item of packages"
 						class="flex-1 bg-bg p-3 rounded-md cursor-pointer"
-						[ngClass]="{ 'border-active border-2 bg-bg-active': selectPackage === item }"
+						[ngClass]="{ 'border-primary-color border-2 bg-bg-active': selectPackage === item }"
 						(click)="selectPackage = item"
 					>
 						<div class="flex items-end justify-between">
